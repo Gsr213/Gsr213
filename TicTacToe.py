@@ -12,8 +12,9 @@ class tictactoe():
 
     def game_loop(self):
         turns = 0
-        while(turns < 8):
+        while(turns < 9):
             self.show_board()
+            #TODO Need to add the ability to check for an invalid entry and allow re-entry
             first_move = input("Player 1 enter a space! Please enter column and then row (Ex. A1): ")
             self.play_space('X',first_move)
             self.show_board()
@@ -21,6 +22,9 @@ class tictactoe():
                 print("Player 1 wins!")
                 return
             turns += 1
+            if turns == 9:
+                break
+            #TODO Need to add the ability to check for an invalid entry and allow re-entry
             second_move = input("Player 2 enter a space! Please enter column and then row (Ex. A1): ")
             self.play_space('O',second_move)
             self.show_board()
@@ -28,6 +32,7 @@ class tictactoe():
                 print("Player 2 wins!")
                 return
             turns += 1
+            print(turns)
         print("Draw!")
         return
 
